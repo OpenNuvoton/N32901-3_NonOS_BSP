@@ -31,6 +31,10 @@
 #ifndef _WBLIB_H
 #define _WBLIB_H
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 //#include "NUC930_reg.h"
 #include "W55FA93_reg.h"
 #include "wberrcode.h"
@@ -476,6 +480,10 @@ typedef struct
 	INT8 (*UartGetChar_NoBlocking)(void);	
 }UARTDEV_T;
 INT32 register_uart_device(UINT32 u32port, UARTDEV_T* pUartDev);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif  /* _WBLIB_H */
 

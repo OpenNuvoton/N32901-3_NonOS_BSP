@@ -39,7 +39,7 @@ __align (32) uint8_t txmem[SIZE_TXMEM];
 #define COLOR_BLUE          0xFF0000FF
 #define COLOR_GREEN         0xFF00FF00
 
-#define DELAY_INTER_FRAME   50000
+#define DELAY_INTER_FRAME   50  // 500 ms
 
 void clr_disp_buf(uint32_t fill_color)
 {
@@ -503,7 +503,7 @@ int main()
     }
     
     {   // Initialize timer.
-        UINT32 u32ExtFreq = sysGetExternalClock();
+        UINT32 u32ExtFreq = sysGetExternalClock() * 1000;
         
         sysSetTimerReferenceClock (TIMER0, u32ExtFreq);
     }
