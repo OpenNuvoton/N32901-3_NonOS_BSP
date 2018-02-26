@@ -43,61 +43,32 @@
 
 #include "w55fa93_reg.h"
 
-#ifdef GIANTPLUS
-#define HAVE_GIANTPLUS_GPM1006D0
-#endif
 
-#ifdef HANNSTAR
-#define HAVE_HANNSTAR_HSD043I9W1
-#endif
-
-//#define HAVE_HANNSTAR_HSD070IDW1		// 800x480
-//#define HAVE_GOWORLD_GW8973
-//#define HAVE_GOWORLD_GWMTF9406A
-#ifdef GOWORLD
-#define HAVE_GOWORLD_GWMTF9360A       // no such LCD
-#endif
-
-//#define HAVE_GOWORLD_GWMTF9615A
-//#define __HAVE_GOWORLD_GWMTF9360A_MODIFY	// wait be tested in detail
-
-//#define HAVE_SHARP_LQ035Q1DH02
-//#define HAVE_WINTEK_WMF3324
-
-//#define HAVE_AMPIRE_800x600
-//#define HAVE_AMPIRE_800x480
-
-//#define HAVE_HIMAX_HX8346		// MPU 320x240
-//#define HAVE_HIMAX_HX8357		// MPU 320x480
-//#define HAVE_ILITEK_ILI9481DS		// MPU 320x480
-//#define HAVE_TECHTRON_R61505V		// MPU 320x240
-//#define HAVE_RISETECH_OTA5182A		// RGB through
-//#define HAVE_RISETECH_OTA5182A_CCIR656		// CCIR656
-
-#ifdef TIANMA
-#define HAVE_TIANMA_TM022HDH31	// MPU 320x240
-#endif
-
-#ifdef GOWORLD_07000GNWV
-#define HAVE_GOWORLD_GW07000GNWV
-#endif
-
-#ifdef TV_D1
-#define HAVE_TVOUT_720x480
-#endif
-
-#ifdef TV_VGA
-#define HAVE_TVOUT_640x480
-#endif
-
-#ifdef TV_QVGA
-#define HAVE_TVOUT_320x240
-#endif
-
-//#define HAVE_SITRONIX_ST7567
-
-//#define HAVE_VG680
-//#define HAVE_TOPPOLY_TD028THEA1
+//#define __HAVE_GIANTPLUS_GPM1006D0__
+//#define __HAVE_HANNSTAR_HSD043I9W1__
+//#define __HAVE_HANNSTAR_HSD070IDW1__			// 800x480
+//#define __HAVE_GOWORLD_GW8973__
+//#define __HAVE_GOWORLD_GWMTF9406A__
+//#define __HAVE_GOWORLD_GWMTF9360A__
+//#define __HAVE_GOWORLD_GWMTF9615A__
+//#define __HAVE_SHARP_LQ035Q1DH02__
+//#define __HAVE_WINTEK_WMF3324__
+//#define __HAVE_AMPIRE_800x600__
+//#define __HAVE_AMPIRE_800x480__
+//#define __HAVE_GOWORLD_GW07000GNWV__
+//#define __HAVE_TIANMA_TM022HDH31__			// MPU 320x240
+//#define __HAVE_HIMAX_HX8346__					// MPU 320x240
+//#define __HAVE_HIMAX_HX8357__					// MPU 320x480
+//#define __HAVE_ILITEK_ILI9481DS__				// MPU 320x480
+//#define __HAVE_TECHTRON_R61505V__				// MPU 320x240
+//#define __HAVE_RISETECH_OTA5182A__			// RGB through
+//#define __HAVE_RISETECH_OTA5182A_CCIR656__	// CCIR656
+//#define __HAVE_TVOUT_720x480__
+//#define __HAVE_TVOUT_640x480__
+//#define __HAVE_TVOUT_320x240__
+//#define __HAVE_SITRONIX_ST7567__
+//#define __HAVE_VG680__
+//#define __HAVE_TOPPOLY_TD028THEA1__
 
 // Define one bit mask
 #define BIT0	0x00000001

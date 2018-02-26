@@ -108,7 +108,9 @@ void initClock(void)
         outp32(REG_SDTIME, 0x098E7549); // DDR Speed grade-75
     #endif
     #ifdef __DDR_6__
-        outp32(REG_SDTIME, 0x094E7425); // DDR Speed grade-6, for N32905 with 32MB DDR-6 under 96MHz HCLK
+//        outp32(REG_SDTIME, 0x094E7425); // DDR Speed grade-6, for N32905 with 32MB DDR-6 under 96MHz HCLK
+// For N32901/N32903, must use
+		outp32(REG_SDTIME, 0x29AC8525);
     #endif
     #ifdef __DDR_5__
         outp32(REG_SDTIME, 0x094E6425); // DDR Speed grade-5

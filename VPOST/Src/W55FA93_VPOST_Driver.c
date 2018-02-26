@@ -37,7 +37,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include "wblib.h"
-//#include "NUC930_VPOST_Regs.h"
+
 #include "w55fa93_vpost.h"
 
 BOOL vpostClearVABuffer(void);
@@ -416,7 +416,7 @@ VOID vpostMPULCDWriteAddr16Bit(unsigned short u16AddrIndex)					// LCD register 
 
 	/*	This polling method failed on Ampire.
 	    Maybe due to timing mismatch. (too fast for LCD panel??)
-	//while(inpw(MPUCMD)&BUSY); 
+	//while(inpw(REG_LCM_MPUCMD)&BUSY); 
 	*/
     	
 } // vpostMPULCDWriteAddr16Bit
@@ -437,24 +437,6 @@ VOID vpostMPULCDWriteData16Bit(unsigned short  u16WriteData)				// LCD register 
 	outpw(REG_LCM_MPUCMD, inpw(REG_LCM_MPUCMD) | MPUCMD_MPU_CS);					// CS=1
    	
 } // vpostMPULCDWriteData16Bit
-
-UINT16 vpostMPULCDReadData16Bit(VOID)										// LCD register data
-{
-	UINT16 ReadData=0x00;
-	outpw(REG_LCM_MPUCMD, inpw(REG_LCM_MPUCMD) & ~(MPUCMD_MPU_ON|MPUCMD_MPU_CS|MPUCMD_WR_RS|MPUCMD_MPU_RWn) );	// CS=0, RS=0	
-
-	outpw(REG_LCM_MPUCMD, inpw(REG_LCM_MPUCMD) | MPUCMD_WR_RS );					// RS=1	
-	outpw(REG_LCM_MPUCMD, inpw(REG_LCM_MPUCMD) | (DRVVPOST_MPU_CMD_MODE << 29) );	// R/W command/paramter mode
-	outpw(REG_LCM_MPUCMD, inpw(REG_LCM_MPUCMD) | MPUCMD_MPU_RWn );					// Read Command/Data Selection			
-	outpw(REG_LCM_MPUCMD, inpw(REG_LCM_MPUCMD) | MPUCMD_MPU_ON);					// trigger command output
-	
-	while(inpw(REG_LCM_MPUCMD) & MPUCMD_BUSY);											// wait command to be sent
-	ReadData = inpw(REG_LCM_MPUCMD) & MPUCMD_MPU_CMD;							// READ register data	
-	outpw(REG_LCM_MPUCMD, inpw(REG_LCM_MPUCMD) & (~MPUCMD_MPU_ON) );				// reset command ON flag
-	outpw(REG_LCM_MPUCMD, inpw(REG_LCM_MPUCMD) | MPUCMD_MPU_CS | MPUCMD_WR_RS);		// CS=1, RS=1
-    
-    return ReadData;
-} // vpostMPULCDReadData16Bit
 
 VOID vpostEnableInt(E_DRVVPOST_INT eInt)
 {

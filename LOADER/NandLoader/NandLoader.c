@@ -5,7 +5,7 @@
 #include "w55fa93_reg.h"
 
 // define DATE CODE and show it when running to make maintaining easy.
-#define DATE_CODE   "20171219"
+#define DATE_CODE   "20180102"
 
 /* global variable */
 typedef struct nand_info

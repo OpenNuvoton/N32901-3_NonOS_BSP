@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>N32903_DebugRel</TargetName>
+      <TargetName>TIANMA_TM022HDH31_N32901</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -43,14 +43,14 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\VPOST_example_Data\N32903_DebugRel\</OutputDirectory>
-          <OutputName>VPOST_example</OutputName>
+          <OutputDirectory>.\TIANMA_TM022HDH31_Data\TIANMA_TM022HDH31\</OutputDirectory>
+          <OutputName>TIANMA_TM022HDH31</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath>.\VPOST_example_Data\N32903_DebugRel\</ListingPath>
+          <ListingPath>.\TIANMA_TM022HDH31_Data\TIANMA_TM022HDH31\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -151,7 +151,7 @@
             <CpuDllArguments></CpuDllArguments>
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
-            <InitializationFile>..\..\..\N32903\N32903.ini</InitializationFile>
+            <InitializationFile>..\..\..\..\N32901\N32901.ini</InitializationFile>
             <Driver>Segger\JLTAgdi.dll</Driver>
           </TargetDlls>
         </DebugOption>
@@ -165,7 +165,7 @@
             <DriverSelection>-1</DriverSelection>
           </Flash1>
           <Flash2></Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
         </Utilities>
         <TargetArmAds>
@@ -339,7 +339,7 @@
             <OneElfS>0</OneElfS>
             <Strict>0</Strict>
             <EnumInt>0</EnumInt>
-            <PlainCh>0</PlainCh>
+            <PlainCh>1</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
             <wLevel>2</wLevel>
@@ -347,9 +347,9 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>N32903</Define>
+              <Define>__LCD_320x240__</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\Lib;..\..\..\SYSLIB\Lib;..\ASIC</IncludePath>
+              <IncludePath>..\..\..\Lib;..\..\ASIC;..\..\..\..\SYSLIB\Lib</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -363,7 +363,7 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>N32903</Define>
+              <Define>N32901</Define>
               <Undefine></Undefine>
               <IncludePath></IncludePath>
             </VariousControls>
@@ -377,10 +377,10 @@
             <useFile>0</useFile>
             <TextAddressRange>0x00000000</TextAddressRange>
             <DataAddressRange>0xF8002000</DataAddressRange>
-            <ScatterFile>..\..\..\N32903\N32903.sct</ScatterFile>
+            <ScatterFile>..\..\..\..\N32901\N32901.sct</ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
-            <Misc>--entry 0</Misc>
+            <Misc>--entry Reset_Go</Misc>
             <LinkerInputFile></LinkerInputFile>
             <DisabledWarnings></DisabledWarnings>
           </LDads>
@@ -393,34 +393,34 @@
             <File>
               <FileName>main_vpost.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Src\main_vpost.c</FilePath>
+              <FilePath>..\..\Src\main_vpost.c</FilePath>
             </File>
             <File>
               <FileName>standalone.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Src\standalone.c</FilePath>
+              <FilePath>..\..\Src\standalone.c</FilePath>
             </File>
             <File>
               <FileName>wb_init.s</FileName>
               <FileType>2</FileType>
-              <FilePath>..\Src\wb_init.s</FilePath>
+              <FilePath>..\..\Src\wb_init.s</FilePath>
             </File>
             <File>
               <FileName>W55FA93_syslib.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\..\..\SYSLIB\Lib\W55FA93_syslib.lib</FilePath>
+              <FilePath>..\..\..\..\SYSLIB\Lib\W55FA93_syslib.lib</FilePath>
             </File>
             <File>
-              <FileName>W55FA93_VPOST_GPM1006D0.lib</FileName>
+              <FileName>W55FA93_VPOST_TIANMA_TM022HDH31.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\..\Lib\W55FA93_VPOST_GPM1006D0.lib</FilePath>
+              <FilePath>..\..\..\Lib\W55FA93_VPOST_TIANMA_TM022HDH31.lib</FilePath>
             </File>
           </Files>
         </Group>
       </Groups>
     </Target>
     <Target>
-      <TargetName>N32901_DebugRel</TargetName>
+      <TargetName>TIANMA_TM022HDH31_N32903</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -456,14 +456,14 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\VPOST_example_Data\N32901_DebugRel\</OutputDirectory>
-          <OutputName>VPOST_example</OutputName>
+          <OutputDirectory>.\TIANMA_TM022HDH31_Data\TIANMA_TM022HDH31\</OutputDirectory>
+          <OutputName>TIANMA_TM022HDH31</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath>.\VPOST_example_Data\N32901_DebugRel\</ListingPath>
+          <ListingPath>.\TIANMA_TM022HDH31_Data\TIANMA_TM022HDH31\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -564,7 +564,7 @@
             <CpuDllArguments></CpuDllArguments>
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
-            <InitializationFile>..\..\..\N32901\N32901.ini</InitializationFile>
+            <InitializationFile>..\..\..\..\N32903\N32903.ini</InitializationFile>
             <Driver>Segger\JLTAgdi.dll</Driver>
           </TargetDlls>
         </DebugOption>
@@ -578,7 +578,7 @@
             <DriverSelection>-1</DriverSelection>
           </Flash1>
           <Flash2></Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
         </Utilities>
         <TargetArmAds>
@@ -752,7 +752,7 @@
             <OneElfS>0</OneElfS>
             <Strict>0</Strict>
             <EnumInt>0</EnumInt>
-            <PlainCh>0</PlainCh>
+            <PlainCh>1</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
             <wLevel>2</wLevel>
@@ -760,9 +760,9 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>N32901</Define>
+              <Define>__LCD_320x240__</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\Lib;..\..\..\SYSLIB\Lib;..\ASIC</IncludePath>
+              <IncludePath>..\..\..\Lib;..\..\ASIC;..\..\..\..\SYSLIB\Lib</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -776,7 +776,7 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>N32901</Define>
+              <Define>N32903</Define>
               <Undefine></Undefine>
               <IncludePath></IncludePath>
             </VariousControls>
@@ -790,10 +790,10 @@
             <useFile>0</useFile>
             <TextAddressRange>0x00000000</TextAddressRange>
             <DataAddressRange>0xF8002000</DataAddressRange>
-            <ScatterFile>..\..\..\N32901\N32901.sct</ScatterFile>
+            <ScatterFile>..\..\..\..\N32903\N32903.sct</ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
-            <Misc>--entry 0</Misc>
+            <Misc>--entry Reset_Go</Misc>
             <LinkerInputFile></LinkerInputFile>
             <DisabledWarnings></DisabledWarnings>
           </LDads>
@@ -806,27 +806,27 @@
             <File>
               <FileName>main_vpost.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Src\main_vpost.c</FilePath>
+              <FilePath>..\..\Src\main_vpost.c</FilePath>
             </File>
             <File>
               <FileName>standalone.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Src\standalone.c</FilePath>
+              <FilePath>..\..\Src\standalone.c</FilePath>
             </File>
             <File>
               <FileName>wb_init.s</FileName>
               <FileType>2</FileType>
-              <FilePath>..\Src\wb_init.s</FilePath>
+              <FilePath>..\..\Src\wb_init.s</FilePath>
             </File>
             <File>
               <FileName>W55FA93_syslib.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\..\..\SYSLIB\Lib\W55FA93_syslib.lib</FilePath>
+              <FilePath>..\..\..\..\SYSLIB\Lib\W55FA93_syslib.lib</FilePath>
             </File>
             <File>
-              <FileName>W55FA93_VPOST_GPM1006D0.lib</FileName>
+              <FileName>W55FA93_VPOST_TIANMA_TM022HDH31.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\..\Lib\W55FA93_VPOST_GPM1006D0.lib</FilePath>
+              <FilePath>..\..\..\Lib\W55FA93_VPOST_TIANMA_TM022HDH31.lib</FilePath>
             </File>
           </Files>
         </Group>

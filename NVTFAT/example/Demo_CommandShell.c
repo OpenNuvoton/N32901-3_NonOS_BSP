@@ -1444,7 +1444,6 @@ void GetDiskInformation(void)
 		ptPDiskPtr = ptPDiskPtr->ptPDiskAllLink;
 	}
 	fsReleaseDiskInformation(pDiskList);  
-	fsReleaseDiskInformation(pDiskList);
 }
 #endif
 /*
