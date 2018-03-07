@@ -331,7 +331,7 @@ UINT32 NVT_LoadKernelFromSD(void)
 	{
 		//for mass's issue. sicSdClose();
 		sysprintf("Detect USB plug in\n");		
-		mass(&ptNDisk, i32ErrorCode);				/* ptNDisk is useless for SD mass-storage*/
+		mass(&ptNDisk, i32BootSDTotalSector);				/* ptNDisk is useless for SD mass-storage*/
 		sysprintf("USB plug out\n");
 	}				
 #ifdef __WIFI_NO_LCM__	 /* Make sure ADO, VPOST and SPU clock has been turn off */	
