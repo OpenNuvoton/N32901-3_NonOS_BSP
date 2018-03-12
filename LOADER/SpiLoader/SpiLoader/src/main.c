@@ -36,9 +36,9 @@
 	#endif
 #else
 	#ifdef __Security__
-	    #define DATE_CODE   "20160614 with Security"
+	    #define DATE_CODE   "20180305 with Security"
 	#else
-		#define DATE_CODE   "20151002"
+		#define DATE_CODE   "20180305"
 	#endif
 #endif
 
@@ -319,8 +319,11 @@ int main(void)
 #endif
 	int count, i;	
 	void	(*fw_func)(void);
+	if(sysGetChipVersion() == 'G')
+		outp32(REG_CLKDIV4, inp32(REG_CLKDIV4)| 0x100);
 	spuDacOnLoader(2);
 #ifndef __No_RTC__
+	outp32(REG_APBCLK, inp32(REG_APBCLK) | RTC_CKE);
 	outp32(AER,0x0000a965);	 	
 	 	
 	while(1)

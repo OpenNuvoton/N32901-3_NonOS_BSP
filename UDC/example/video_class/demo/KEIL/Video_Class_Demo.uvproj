@@ -531,6 +531,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\Smpl_FSC_GM7150.c</FilePath>
             </File>
+            <File>
+              <FileName>demo_wakeup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\demo_wakeup.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -1060,6 +1065,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\Smpl_FSC_GM7150.c</FilePath>
             </File>
+            <File>
+              <FileName>demo_wakeup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\demo_wakeup.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -1588,6 +1598,11 @@
               <FileName>Smpl_FSC_GM7150.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Smpl_FSC_GM7150.c</FilePath>
+            </File>
+            <File>
+              <FileName>demo_wakeup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\demo_wakeup.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2336,6 +2351,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\Smpl_FSC_GM7150.c</FilePath>
             </File>
+            <File>
+              <FileName>demo_wakeup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\demo_wakeup.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -3082,6 +3102,11 @@
               <FileName>Smpl_FSC_GM7150.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Smpl_FSC_GM7150.c</FilePath>
+            </File>
+            <File>
+              <FileName>demo_wakeup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\demo_wakeup.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -3830,6 +3855,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\Smpl_FSC_GM7150.c</FilePath>
             </File>
+            <File>
+              <FileName>demo_wakeup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\demo_wakeup.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -4358,6 +4388,11 @@
               <FileName>Smpl_FSC_GM7150.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Smpl_FSC_GM7150.c</FilePath>
+            </File>
+            <File>
+              <FileName>demo_wakeup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\demo_wakeup.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -4888,6 +4923,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\Smpl_FSC_GM7150.c</FilePath>
             </File>
+            <File>
+              <FileName>demo_wakeup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\demo_wakeup.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -5416,6 +5456,11 @@
               <FileName>Smpl_FSC_GM7150.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Smpl_FSC_GM7150.c</FilePath>
+            </File>
+            <File>
+              <FileName>demo_wakeup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\demo_wakeup.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -5946,6 +5991,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\Smpl_FSC_GM7150.c</FilePath>
             </File>
+            <File>
+              <FileName>demo_wakeup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\demo_wakeup.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -6474,6 +6524,11 @@
               <FileName>Smpl_FSC_GM7150.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Smpl_FSC_GM7150.c</FilePath>
+            </File>
+            <File>
+              <FileName>demo_wakeup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\demo_wakeup.c</FilePath>
             </File>
           </Files>
         </Group>

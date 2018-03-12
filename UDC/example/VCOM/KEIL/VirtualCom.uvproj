@@ -349,7 +349,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\lib;..\..\..\..\SYSLIB\Lib</IncludePath>
+              <IncludePath>..\..\..\lib;..\..\..\..\SYSLIB\Lib;..\..\..\..\gpio\lib</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -419,6 +419,16 @@
               <FileName>W55FA93_syslib.lib</FileName>
               <FileType>4</FileType>
               <FilePath>..\..\..\..\SYSLIB\Lib\W55FA93_syslib.lib</FilePath>
+            </File>
+            <File>
+              <FileName>demo_wakeup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\demo_wakeup.c</FilePath>
+            </File>
+            <File>
+              <FileName>w55fa93_gpio.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\..\..\..\gpio\lib\w55fa93_gpio.lib</FilePath>
             </File>
           </Files>
         </Group>
@@ -767,7 +777,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\lib;..\..\..\..\SYSLIB\Lib</IncludePath>
+              <IncludePath>..\..\..\lib;..\..\..\..\SYSLIB\Lib;..\..\..\..\gpio\lib</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -837,6 +847,16 @@
               <FileName>W55FA93_syslib.lib</FileName>
               <FileType>4</FileType>
               <FilePath>..\..\..\..\SYSLIB\Lib\W55FA93_syslib.lib</FilePath>
+            </File>
+            <File>
+              <FileName>demo_wakeup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\demo_wakeup.c</FilePath>
+            </File>
+            <File>
+              <FileName>w55fa93_gpio.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\..\..\..\gpio\lib\w55fa93_gpio.lib</FilePath>
             </File>
           </Files>
         </Group>

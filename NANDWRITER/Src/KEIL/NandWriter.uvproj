@@ -165,7 +165,7 @@
             <DriverSelection>-1</DriverSelection>
           </Flash1>
           <Flash2></Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
         </Utilities>
         <TargetArmAds>
@@ -347,7 +347,7 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>_DEMO_WVGA_</Define>
+              <Define>_DEMO_WVGA_ N32903</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\..\gnand\Lib;..\..\..\SIC\Lib;..\..\..\NVTFAT\lib;..\..\..\SYSLIB\Lib;..\..\..\VPOST\Lib;..\..\..\gpio\lib;..\..\..\Font\Lib</IncludePath>
             </VariousControls>
@@ -669,7 +669,7 @@
             <DriverSelection>-1</DriverSelection>
           </Flash1>
           <Flash2></Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
         </Utilities>
         <TargetArmAds>
@@ -851,7 +851,7 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>_DEMO_QVGA_</Define>
+              <Define>_DEMO_QVGA_ N32903</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\..\gnand\Lib;..\..\..\SIC\Lib;..\..\..\NVTFAT\lib;..\..\..\SYSLIB\Lib;..\..\..\VPOST\Lib;..\..\..\gpio\lib;..\..\..\Font\Lib</IncludePath>
             </VariousControls>
@@ -1173,7 +1173,7 @@
             <DriverSelection>-1</DriverSelection>
           </Flash1>
           <Flash2></Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
         </Utilities>
         <TargetArmAds>
@@ -1355,7 +1355,7 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>_DEMO_WSVGA_</Define>
+              <Define>_DEMO_WSVGA_ N32903</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\..\gnand\Lib;..\..\..\SIC\Lib;..\..\..\NVTFAT\lib;..\..\..\SYSLIB\Lib;..\..\..\VPOST\Lib;..\..\..\gpio\lib;..\..\..\Font\Lib</IncludePath>
             </VariousControls>
@@ -1677,7 +1677,7 @@
             <DriverSelection>-1</DriverSelection>
           </Flash1>
           <Flash2></Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
         </Utilities>
         <TargetArmAds>
@@ -1859,7 +1859,7 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>_DEMO_WVGA_</Define>
+              <Define>_DEMO_WVGA_ N32901</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\..\gnand\Lib;..\..\..\SIC\Lib;..\..\..\NVTFAT\lib;..\..\..\SYSLIB\Lib;..\..\..\VPOST\Lib;..\..\..\gpio\lib;..\..\..\Font\Lib</IncludePath>
             </VariousControls>
@@ -2181,7 +2181,7 @@
             <DriverSelection>-1</DriverSelection>
           </Flash1>
           <Flash2></Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
         </Utilities>
         <TargetArmAds>
@@ -2363,7 +2363,7 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>_DEMO_QVGA_</Define>
+              <Define>_DEMO_QVGA_ N32901</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\..\gnand\Lib;..\..\..\SIC\Lib;..\..\..\NVTFAT\lib;..\..\..\SYSLIB\Lib;..\..\..\VPOST\Lib;..\..\..\gpio\lib;..\..\..\Font\Lib</IncludePath>
             </VariousControls>

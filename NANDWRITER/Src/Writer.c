@@ -843,6 +843,15 @@ int main()
     FWInfo[FileInfoIdx].startBlock = 0;
     FWInfo[FileInfoIdx].endBlock = 3;
     FWInfo[FileInfoIdx].executeAddr = 0x900000;
+#if defined(N32905)		
+    FWInfo[FileInfoIdx].executeAddr = 0x900000;
+#endif
+#if defined(N32903)		
+    FWInfo[FileInfoIdx].executeAddr = 0x700000;
+#endif
+#if defined(N32901)		
+    FWInfo[FileInfoIdx].executeAddr = 0x180000;
+#endif    
     FWInfo[FileInfoIdx].fileLen = (UINT32)fsGetFileSize(hNvtFile);
     gNandLoaderSize = FWInfo[FileInfoIdx].fileLen;
     memcpy(&FWInfo[FileInfoIdx].imageName[0], Ini_Writer.NandLoader, 32);
@@ -853,7 +862,15 @@ int main()
     if (Chip_flag == IBR_NEW)
     {
         BootCodeMark_new.BootCodeMarker = 0x57425AA5;
+#if defined(N32905)		
         BootCodeMark_new.ExeAddr = 0x900000;
+#endif
+#if defined(N32903)		
+        BootCodeMark_new.ExeAddr = 0x700000;
+#endif
+#if defined(N32901)		
+        BootCodeMark_new.ExeAddr = 0x180000;
+#endif
         BootCodeMark_new.ImageSize = FWInfo[FileInfoIdx].fileLen;
         BootCodeMark_new.Reserved = 0x0000000;
 
@@ -864,7 +881,15 @@ int main()
     else
     {
         NandMark.BootCodeMarker = 0x57425AA5;
+#if defined(N32905)		
         NandMark.ExeAddr = 0x900000;
+#endif
+#if defined(N32903)		
+        NandMark.ExeAddr = 0x700000;
+#endif
+#if defined(N32901)		
+        NandMark.ExeAddr = 0x180000;
+#endif   
         NandMark.ImageSize = FWInfo[FileInfoIdx].fileLen;
         NandMark.SkewMarker = 0xA55A4257;
         NandMark.DQSODS = 0x00001010;
@@ -1040,7 +1065,12 @@ WriteLogo:
     FWInfo[FileInfoIdx].imageNo = FileInfoIdx;
     FWInfo[FileInfoIdx].imageFlag = 4;
     FWInfo[FileInfoIdx].startBlock = FWInfo[FileInfoIdx-1].endBlock + 1;
+#if defined(N32905) || defined(N32903)	
     FWInfo[FileInfoIdx].executeAddr = 0x500000;
+#endif 		
+#if defined(N32901)
+    FWInfo[FileInfoIdx].executeAddr = 0x190000; //Although didn't support logo in 2MB solution. But we still defined it.
+#endif    
     FWInfo[FileInfoIdx].fileLen = (UINT32)fsGetFileSize(hNvtFile);
     memcpy(&FWInfo[FileInfoIdx].imageName[0], Ini_Writer.Logo, 32);
     gCurPage = 0;
@@ -1133,7 +1163,15 @@ WriteNVTLoader:
     FWInfo[FileInfoIdx].imageNo = FileInfoIdx;
     FWInfo[FileInfoIdx].imageFlag = 1;
     FWInfo[FileInfoIdx].startBlock = FWInfo[FileInfoIdx-1].endBlock + 1;
+#if defined(N32905)		
     FWInfo[FileInfoIdx].executeAddr = 0x800000;
+#endif
+#if defined(N32903)		
+    FWInfo[FileInfoIdx].executeAddr = 0x600000;
+#endif
+#if defined(N32901)
+    FWInfo[FileInfoIdx].executeAddr = 0x60000;
+#endif    
     FWInfo[FileInfoIdx].fileLen = (UINT32)fsGetFileSize(hNvtFile);
     memcpy(&FWInfo[FileInfoIdx].imageName[0], Ini_Writer.NVTLoader, 32);
     gCurPage = 0;

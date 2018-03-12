@@ -40,7 +40,8 @@
 
 #define SYSTEM_CLOCK     	12000000
 #define UART_BAUD_RATE		115200
-#define RESERVED_SIZE		(0)//(10240*1024)		//10MB
+//#define RESERVED_SIZE		(0)//(10240*1024)		//10MB
+#define RESERVED_SIZE		(256*1024)			//256 KB
 
 //#define ENABLE_USB_HOST
 //#define TEST_PWOER_DOWN	// USB power down wakeup
@@ -104,6 +105,8 @@ extern VOID  fsGetErrorDescription(INT nErrCode, CHAR *szDescription, INT bIsPri
 extern INT   fsBIG5toUnicode(VOID *bstr, VOID *ustr);
 extern void  FAT_dump_sector_cache(void);
 
+#define RAM_DISK_SIZE 	((1024*1024)*1)
+INT8 i8RamDisk[RAM_DISK_SIZE];
 
 /* imported from WBFILE_DISK.C */
 extern PDISK_T		*_fs_ptPDiskList;
@@ -384,30 +387,46 @@ static INT  Action_DIR(CHAR *suDirName)
 
 		fsUnicodeToAscii(tFileInfo.suLongName, szLongName, 1);
 		
-		if (tFileInfo.ucAttrib & A_DIR)
-		{
-/*			printf("%s %s      <DIR>  %02d-%02d-%04d  %02d:%02d  %s",
+		if (tFileInfo.ucAttrib & A_DIR){
+			#if 0
+			printf("%s %s      <DIR>  %02d-%02d-%04d  %02d:%02d  %s\n",
 						szMainName, szExtName, 
 						tFileInfo.ucWDateMonth, tFileInfo.ucWDateDay, (tFileInfo.ucWDateYear+80)%100 ,
 						tFileInfo.ucWTimeHour, tFileInfo.ucWTimeMin, szLongName);
-						*/
-			printf("%s %s      <DIR>  %02d-%02d-%04d  %02d:%02d  \n",
-						szMainName, szExtName, 
-						tFileInfo.ucWDateMonth, tFileInfo.ucWDateDay, (tFileInfo.ucWDateYear+80)%100 ,
-						tFileInfo.ucWTimeHour, tFileInfo.ucWTimeMin);						
-		}
-		else
-		{
-/*			printf("%s %s %10d  %02d-%02d-%04d  %02d:%02d  %s",
+			#else	/* There is an C library issue on Keil V5.24 */
+			printf("%s %s     <DIR>     ",
+						szMainName, szExtName);
+			printf(" %02d-%02d-%04d ",
+						tFileInfo.ucWDateMonth, tFileInfo.ucWDateDay, (tFileInfo.ucWDateYear+80)%100);
+			
+			printf("%02d:%02d  %s\n",
+						tFileInfo.ucWTimeHour, tFileInfo.ucWTimeMin, szLongName);
+			#endif
+		}				
+		else{
+			volatile UINT32 u32Var=0;	
+			#if 0
+			printf("%s %s %10d  %02d-%02d-%04d  %02d:%02d  %s\n",
 						szMainName, szExtName, tFileInfo.n64FileSize,
 						tFileInfo.ucWDateMonth, tFileInfo.ucWDateDay, (tFileInfo.ucWDateYear+80)%100 ,
 						tFileInfo.ucWTimeHour, tFileInfo.ucWTimeMin, szLongName);
-						*/
-			printf("%s %s %10d  %02d-%02d-%04d  %02d:%02d  \n",
-						szMainName, szExtName, tFileInfo.n64FileSize,
-						tFileInfo.ucWDateMonth, tFileInfo.ucWDateDay, (tFileInfo.ucWDateYear+80)%100 ,
-						tFileInfo.ucWTimeHour, tFileInfo.ucWTimeMin);						
-        }
+			#else	/* There is an C library issue on Keil V5.24 */
+			printf("%s %s    ",
+						szMainName, szExtName);
+		#if 0	
+			printf("%10d ", tFileInfo.n64FileSize);
+		#else
+			u32Var = tFileInfo.n64FileSize;
+			printf("%10d ", u32Var);
+		#endif		
+			
+			printf(" %02d-%02d-%04d ",
+						tFileInfo.ucWDateMonth, tFileInfo.ucWDateDay, (tFileInfo.ucWDateYear+80)%100);
+			
+			printf("%02d:%02d  %s\n",
+						tFileInfo.ucWTimeHour, tFileInfo.ucWTimeMin, szLongName);
+			#endif		
+		}		
 	} while (!fsFindNext(&tFileInfo));
 	
 	fsFindClose(&tFileInfo);
@@ -476,15 +495,10 @@ static INT  Action_DIR2(CHAR *suDirName)
 		
 		if (tFileInfo.ucAttrib & A_DIR)
 		{
-/*			printf("%s %s      <DIR>  %02d-%02d-%04d  %02d:%02d  %s\n",
+			printf("%s %s      <DIR>  %02d-%02d-%04d  %02d:%02d  %s\n",
 						szMainName, szExtName, 
 						tFileInfo.ucWDateMonth, tFileInfo.ucWDateDay, (tFileInfo.ucWDateYear+80)%100 ,
 						tFileInfo.ucWTimeHour, tFileInfo.ucWTimeMin, szLongName);
-						*/
-			printf("%s %s      <DIR>  %02d-%02d-%04d  %02d:%02d  \n",
-						szMainName, szExtName, 
-						tFileInfo.ucWDateMonth, tFileInfo.ucWDateDay, (tFileInfo.ucWDateYear+80)%100 ,
-						tFileInfo.ucWTimeHour, tFileInfo.ucWTimeMin);						
 			fsUnicodeCopyStr(suLongName, suDirName);
 			if (fsUnicodeStrLen(suDirName) > 6)
 				fsUnicodeStrCat(suLongName, suSlash);	/* not C:\ */
@@ -729,7 +743,7 @@ static INT  Action_PrintDiskInfo()
 		printf("    head:     [%d]\n", ptPDiskPtr->nHeadNum);
 		printf("    sector:   [%d]\n", ptPDiskPtr->nSectorNum);
 		printf("    cylinder: [%d]\n", ptPDiskPtr->nCylinderNum);
-		printf("    size:     [%d MB]\n", (INT)ptPDiskPtr->uDiskSize / 1024);
+		printf("    size:     [%d MB]\n", ((INT)ptPDiskPtr->uDiskSize / 1024));
 		
 		ptPartition = ptPDiskPtr->ptPartList;
 		nPartIdx = 1;
@@ -1223,6 +1237,7 @@ void  CommandShell()
 			case FORMAT:
 				{
 					UINT32 u32BlockSize, u32FreeSize, u32DiskSize;					
+					UINT32 u32RemainingSize;
 					char chr;
 					#if defined(ENABLE_SD_ONE_PART)||defined(ENABLE_SD_TWO_PART)||defined(ENABLE_SD_FOUR_PART) 
 					PDISK_T		*pDiskList;
@@ -1245,7 +1260,6 @@ void  CommandShell()
 						printf("disk_size = %d\n", u32DiskSize);  
 					#endif
 					#ifdef ENABLE_SD_TWO_PART		
-						UINT32 u32RemainingSize;									
 						pDiskList = fsGetFullDiskInfomation();
 						printf("Total Disk Size = %dMB\n", pDiskList->uDiskSize/1024);
 						u32RemainingSize =  pDiskList->uDiskSize - (RESERVED_SIZE/1024); //rest disk size = total disk size - reserved size 
@@ -1271,16 +1285,12 @@ void  CommandShell()
 						printf("disk_size = %d\n", u32DiskSize);   	
 					#endif		
 					#ifdef ENABLE_SD_FOUR_PART		
-						UINT32 u32RemainingSize;									
 						pDiskList = fsGetFullDiskInfomation();
 						printf("Total Disk Size = %dMB\n", pDiskList->uDiskSize/1024);	
 						u32RemainingSize =  pDiskList->uDiskSize - (RESERVED_SIZE/1024); //rest disk size = total disk size - reserved size 
 						printf("RemainingSize = %dMB\n", u32RemainingSize/1024);					
-						if (fsFourPartAndFormatAll((PDISK_T *)pDiskList->ptSelf, 
-														128*1024, 
-														128*1024,
-						    								128*1024,	
-						    								u32RemainingSize - 3*128*1024) < 0) 
+						if (fsFourPartAndFormatAll((PDISK_T *)pDiskList->ptSelf, 128*1024, 128*1024,
+						    								128*1024,	u32RemainingSize - 3*128*1024) < 0) 
 						{
 							sysprintf("Format failed\n");	
 							exit(-1);
@@ -1455,6 +1465,48 @@ void fscopyAndCompare(void)
 
 }
 */
+
+void FormatRamDisk(void)
+{
+	PDISK_T       *pDiskList, *ptPDiskPtr;
+	PARTITION_T   *ptPartition;
+	INT           nDiskIdx = 0;
+	INT           nPartIdx;
+	ptPDiskPtr = pDiskList = fsGetFullDiskInfomation();
+	while (ptPDiskPtr != NULL)
+	{
+		printf("\n\n=== Disk %d (%s) ======================\n", 
+		nDiskIdx++, (ptPDiskPtr->nDiskType & 
+		DISK_TYPE_USB_DEVICE) ? "USB" : "IDE");
+		printf("    name:     [%s%s]\n", ptPDiskPtr->szManufacture, 
+		ptPDiskPtr->szProduct);
+		printf("    head:     [%d]\n", ptPDiskPtr->nHeadNum);
+		printf("    sector:   [%d]\n", ptPDiskPtr->nSectorNum);
+		printf("    cylinder: [%d]\n", ptPDiskPtr->nCylinderNum);
+		printf("    size:     [%d MB]\n", ptPDiskPtr->uDiskSize / 1024);
+				
+		ptPartition = ptPDiskPtr->ptPartList;
+		nPartIdx = 1;
+		while (ptPartition != NULL)
+		{
+			printf("\n    --- Partition %d --------------------\n", 
+			nPartIdx++);
+			printf("        active: [%s]\n", 
+			(ptPartition->ucState & 0x80) ? "Yes" : "No");
+			printf("        size:   [%d MB]\n", 
+			(ptPartition->uTotalSecN / 1024) / 2);
+			printf("        start:  [%d]\n", ptPartition->uStartSecN);
+			printf("        type:   ");
+			ptPartition = ptPartition->ptNextPart;
+		}
+		ptPDiskPtr = ptPDiskPtr->ptPDiskAllLink;
+		fsFormatFlashMemoryCard(ptPDiskPtr);
+	}	
+	fsReleaseDiskInformation(pDiskList);  
+}
+
+
+INT  InitRAMDisk(UINT32 uStartAddr, UINT32 uDiskSize);
 int main()
 {
     	WB_UART_T 	uart;
@@ -1498,6 +1550,8 @@ int main()
 	//USB_PortInit(HOST_LIKE_PORT0);
 	USB_PortInit(HOST_LIKE_PORT1);	
 
+	//umass_register_connect(MassStotrageConnection);	
+	//umass_register_disconnect(MassStotrageDisconnection);	
 	InitUsbSystem();       
 	UMAS_InitUmasDriver();
 #endif	
@@ -1523,6 +1577,13 @@ int main()
 	fsAssignDriveNumber('D', DISK_TYPE_SD_MMC, 0, 2);
 	fsAssignDriveNumber('E', DISK_TYPE_SD_MMC, 0, 3);
 	fsAssignDriveNumber('F', DISK_TYPE_SD_MMC, 0, 4);
+#endif
+
+#ifdef ENABLE_RAM	
+	InitRAMDisk((UINT32)&i8RamDisk, (RAM_DISK_SIZE/1024))	;
+	FormatRamDisk();
+	fsSetVolumeLabel('D', "RAM", strlen("RAM")); 
+	//fsAssignDriveNumber('D', DISK_TYPE_HARD_DISK, 1, 1);
 #endif
 
 #ifdef ENABLE_GNAND
