@@ -536,6 +536,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\demo_wakeup.c</FilePath>
             </File>
+            <File>
+              <FileName>Smpl_FSC_NT99141.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Smpl_FSC_NT99141.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -1070,6 +1075,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\demo_wakeup.c</FilePath>
             </File>
+            <File>
+              <FileName>Smpl_FSC_NT99141.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Smpl_FSC_NT99141.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -1603,6 +1613,11 @@
               <FileName>demo_wakeup.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\demo_wakeup.c</FilePath>
+            </File>
+            <File>
+              <FileName>Smpl_FSC_NT99141.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Smpl_FSC_NT99141.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2356,6 +2371,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\demo_wakeup.c</FilePath>
             </File>
+            <File>
+              <FileName>Smpl_FSC_NT99141.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Smpl_FSC_NT99141.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -3107,6 +3127,11 @@
               <FileName>demo_wakeup.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\demo_wakeup.c</FilePath>
+            </File>
+            <File>
+              <FileName>Smpl_FSC_NT99141.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Smpl_FSC_NT99141.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -3860,6 +3885,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\demo_wakeup.c</FilePath>
             </File>
+            <File>
+              <FileName>Smpl_FSC_NT99141.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Smpl_FSC_NT99141.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -4393,6 +4423,11 @@
               <FileName>demo_wakeup.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\demo_wakeup.c</FilePath>
+            </File>
+            <File>
+              <FileName>Smpl_FSC_NT99141.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Smpl_FSC_NT99141.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -4928,6 +4963,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\demo_wakeup.c</FilePath>
             </File>
+            <File>
+              <FileName>Smpl_FSC_NT99141.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Smpl_FSC_NT99141.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -5461,6 +5501,11 @@
               <FileName>demo_wakeup.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\demo_wakeup.c</FilePath>
+            </File>
+            <File>
+              <FileName>Smpl_FSC_NT99141.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Smpl_FSC_NT99141.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -5996,6 +6041,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\demo_wakeup.c</FilePath>
             </File>
+            <File>
+              <FileName>Smpl_FSC_NT99141.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Smpl_FSC_NT99141.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -6529,6 +6579,11 @@
               <FileName>demo_wakeup.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\demo_wakeup.c</FilePath>
+            </File>
+            <File>
+              <FileName>Smpl_FSC_NT99141.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Smpl_FSC_NT99141.c</FilePath>
             </File>
           </Files>
         </Group>

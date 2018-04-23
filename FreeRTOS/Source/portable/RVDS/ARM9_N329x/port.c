@@ -285,8 +285,8 @@ uint32_t ulCompareMatch;
 	#endif
 	sysEnableInterrupt(IRQ_TMR1);
 
-	outpw(REG_TCSR1, (inpw(REG_TCSR1) & 0x87FFFF00) | (0xD << 27));		// 0xC means CEN and IE were enable
 	outpw(REG_TICR1, ulCompareMatch);
+	outpw(REG_TCSR1, (inpw(REG_TCSR1) & 0x87FFFF00) | (0xD << 27));		// 0xC means CEN and IE were enable
 }
 /*-----------------------------------------------------------*/
 

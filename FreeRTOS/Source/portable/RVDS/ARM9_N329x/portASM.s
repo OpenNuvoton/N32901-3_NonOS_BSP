@@ -129,7 +129,8 @@ vPreemptiveTick
 
 	PRESERVE8
 
-	STMDB SP!, {R0-R2}					; Store R0-R2 first as we need to use it.
+	portSAVE_CONTEXT					; Save the context of the current task.
+
 	LDR R0, =REG_AIC_IPER				;
 	LDR R0, [R0] 
 	LDR R1, =REG_AIC_ISNR				;
@@ -139,18 +140,12 @@ vPreemptiveTick
 	BEQ SkipIrqHandler
 
 	LDR R2, =sysIrqHandler				; Call to real interrupt handler of non-OS.  
-	STMDB SP!, {LR}						; Store LR.
 	MOV LR, PC							;
 	BX R2								;
 
-	LDMIA SP!,{LR}						; Restore LR.
-	LDMIA SP!,{R0-R2}					; Restore R0-R2.
-	SUBS PC, LR, #4						; Skip FreeRTOS context switch and return.
+	B RestoreContext
 
 SkipIrqHandler
-	LDMIA SP!,{R0-R2}					; Restore R0-R2.
-	portSAVE_CONTEXT					; Save the context of the current task.	
-
 	LDR R0, =xTaskIncrementTick			; Increment the tick count.  
 	MOV LR, PC							; This may make a delayed task ready
 	BX R0								; to run.
@@ -170,6 +165,7 @@ SkipContextSwitch
 	LDR R1, =1
 	STR R1,[R0]
 
+RestoreContext
 	portRESTORE_CONTEXT					; Restore the context of the highest 
 										; priority task that is ready to run.
 	END
