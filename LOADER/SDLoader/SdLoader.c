@@ -6,9 +6,9 @@
 
 // define DATE CODE and show it when running to make maintaining easy.
 #ifdef _S605_
-    #define DATE_CODE   "20180306 for S605"
+    #define DATE_CODE   "20181017 for S605"
 #else
-    #define DATE_CODE   "20180306"
+    #define DATE_CODE   "20181017"
 #endif
 
 /* global variable */
@@ -108,9 +108,7 @@ void initClock(void)
         outp32(REG_SDTIME, 0x098E7549); // DDR Speed grade-75
     #endif
     #ifdef __DDR_6__
-//        outp32(REG_SDTIME, 0x094E7425); // DDR Speed grade-6, for N32905 with 32MB DDR-6 under 96MHz HCLK
-// For N32901/N32903, must use
-		outp32(REG_SDTIME, 0x29AC8525);
+        outp32(REG_SDTIME, 0x094E7425); // DDR Speed grade-6, for N32905 with 32MB DDR-6 under 96MHz HCLK
     #endif
     #ifdef __DDR_5__
         outp32(REG_SDTIME, 0x094E6425); // DDR Speed grade-5
@@ -190,6 +188,9 @@ int main()
     UINT32 u32PllKHz, u32SysKHz, u32CpuKHz, u32HclkKHz, u32ApbKHz;
     int ibr_boot_sd_port;
 
+    /* Clear Boot Code Header in SRAM to avoid booting fail issue */
+    outp32(0xFF000000, 0);
+
     spuDacOn(2);
 
     initClock();
@@ -218,6 +219,7 @@ int main()
     sysInitializeUART(&uart);
 
     sysprintf("FA93 SD Boot Loader entry (%s).\n", DATE_CODE);
+
     if( sysGetChipVersion() == 'G' )
         sysprintf("FA93 chip version : G\n");
     else
