@@ -1,1 +1,0 @@
-move .\adc_Data\ADC_POLL\W55FA93_adc_Poll.lib ..\..\Lib

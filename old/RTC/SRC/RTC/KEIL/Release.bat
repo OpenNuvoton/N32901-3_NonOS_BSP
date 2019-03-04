@@ -1,1 +1,0 @@
-move .\RTCLib_Data\Release\w55fa93_RTClib.lib ..\..\..\Lib

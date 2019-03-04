@@ -1,1 +1,0 @@
-move .\dev_spi_Data\Release\w55fa93_SPI_freertos.lib ..\..\Lib

@@ -1,1 +1,0 @@
-move .\MSC_Data\NAND\w55fa93_MSC_NAND.lib ..\..\..\Lib

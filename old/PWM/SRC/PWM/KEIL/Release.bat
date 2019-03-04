@@ -1,1 +1,0 @@
-move .\PWMLib_Data\Release\w55fa93_PWMlib.lib ..\..\..\Lib
