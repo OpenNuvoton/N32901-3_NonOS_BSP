@@ -1,1 +1,0 @@
-move .\JpegLib_Data\Release\w55fa93_jpeglib.lib ..\..\..\Lib

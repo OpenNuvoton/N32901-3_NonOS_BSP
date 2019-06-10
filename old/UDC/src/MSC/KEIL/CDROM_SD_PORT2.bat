@@ -1,1 +1,0 @@
-move .\MSC_CDROM_Data\SD_PORT2\w55fa93_MSC_SD_PORT2_CDROM.lib ..\..\..\Lib

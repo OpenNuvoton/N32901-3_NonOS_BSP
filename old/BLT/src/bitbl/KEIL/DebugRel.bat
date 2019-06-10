@@ -1,1 +1,0 @@
-move .\bitbl_Data\DebugRel\bitblt.lib ..\..\..\Lib
